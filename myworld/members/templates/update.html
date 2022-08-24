@@ -1,0 +1,21 @@
+<h1>Update member</h1>
+
+<form action="updaterecord/{{ mymember.id }}" method="post">
+    {% csrf_token %}
+    Full name: <br>
+    <input name="fullName" value="{{ mymember.fullName }}">
+    <br><br>
+    Email: <br>
+    <input name="email" value="{{ mymember.email }}">
+    <br><br>
+    Points: <br>
+    <input type="number" name="points" placeholder="{{ mymember.points }}" disabled>
+    <br><br>
+    Quiz Resolved: <br>
+    <input type="number" name="quizResolved" placeholder="{{ mymember.quizResolved }}" disabled>
+    <br><br>
+    Questions Resolved: <br>
+    <input type="number" name="questionsResolved" placeholder="{{ mymember.questionsResolved }}" disabled>
+    <br><br>
+    <input type="submit" value="Submit">
+</form>

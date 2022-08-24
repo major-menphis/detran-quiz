@@ -18,6 +18,8 @@
         <td>{{ x.quizResolved }}</td>
         <td>{{ x.questionsResolved }}</td>
         <td>{{ x.registrationDate }}</td>
+        <td><a href="delete/{{ x.id }}">delete</a></td>
+        <td><a href="update/{{ x.id }}">update</a></td>
     </tr>
     {% endfor %}
     </table>
