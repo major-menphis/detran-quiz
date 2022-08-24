@@ -22,4 +22,26 @@ def addrecord(request):
     member.save()
     return HttpResponseRedirect(reverse('index'))
 
+def delete(request, id):
+    member = Members.objects.get(id=id)
+    member.delete()
+    return HttpResponseRedirect(reverse('index'))
+
+def update(request, id):
+    mymember = Members.objects.get(id=id)
+    template = loader.get_template('update.html')
+    context = {
+        'mymember': mymember,
+    }
+    return HttpResponse(template.render(context, request))
+
+def updaterecord(request, id):
+    a = request.POST['fullName']
+    b = request.POST['email']
+    member = Members.objects.get(id=id)
+    member.fullName = a
+    member.email = b
+    member.save()
+    return HttpResponseRedirect(reverse('index'))
+
 # Create your views here.
