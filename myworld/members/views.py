@@ -3,7 +3,7 @@ from django.template import loader
 from django.urls import reverse
 from .models import Members
 
-def index(request):
+def members(request):
     mymembers = Members.objects.all().values()
     template = loader.get_template('members.html')
     context = {
@@ -20,12 +20,12 @@ def addrecord(request):
     b = request.POST['email']
     member = Members(fullName=a, email=b, points=0, quizResolved=0, questionsResolved=0)
     member.save()
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('members'))
 
 def delete(request, id):
     member = Members.objects.get(id=id)
     member.delete()
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('members'))
 
 def update(request, id):
     mymember = Members.objects.get(id=id)
@@ -42,6 +42,6 @@ def updaterecord(request, id):
     member.fullName = a
     member.email = b
     member.save()
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('members'))
 
 # Create your views here.
