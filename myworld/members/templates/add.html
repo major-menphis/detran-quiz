@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Detran Quiz - Add</title>{% endblock %}
+{% block content %}
 <h1>Add Member</h1>
 
 <form action="addrecord/" method="post">
@@ -19,3 +23,5 @@ Questions Resolved: <br>
 <br><br>
 <input type="submit" value="Submit">
 </form>
+
+{% endblock %}
